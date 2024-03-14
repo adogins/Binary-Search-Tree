@@ -38,6 +38,8 @@ public class BSTTester {
             System.out.println("-----------------------------------------------------------------------------------------------------------");
             deleteTest6();
             System.out.println("-----------------------------------------------------------------------------------------------------------");
+            insertTest3();
+            System.out.println("-----------------------------------------------------------------------------------------------------------");
         } // runTests
         public static void insertTest() {
             BST list = new BST();
@@ -344,4 +346,56 @@ public class BSTTester {
             System.out.println("Inorder: ");
             list.inorder();
         } // deleteTest6
+        public static void insertTest3() {
+            BST list = new BST();
+            int num1 = 582;
+            int num2 = 714;
+            int num3 = 201;
+            int num4 = 702;
+            int num5 = 572;
+            int num6 = 225;
+            int num7 = 495;
+            int num8 = 475;
+            int num9 = 987;
+            int num10 = 436;
+            int num11 = 531;
+            int num12 = 629;
+            int num13 = 517;
+            int num14 = 176;
+            int num15 = 354;
+            int num16 = 859;
+            int num17 = 912;
+            int num18 = 135;
+            int num19 = 472;
+            int num20 = 242;
+            list.insert(num1);
+            list.insert(num2);
+            list.insert(num3);
+            list.insert(num4);
+            list.insert(num5);
+            list.insert(num6);
+            list.insert(num7);
+            list.insert(num8);
+            list.insert(num9);
+            list.insert(num10);
+            list.insert(num11);
+            list.insert(num12);
+            list.insert(num13);
+            list.insert(num14);
+            list.insert(num15);
+            list.insert(num16);
+            list.insert(num17);
+            list.insert(num18);
+            list.insert(num19);
+            list.insert(num20);
+            list.delete(225);
+            System.out.println("Insert Test 3");
+            System.out.println("Size: " + list.size());
+            System.out.println("Preorder:");
+            list.preorder();
+            System.out.println("Postorder: ");
+            list.postorder();
+            System.out.println("Inorder: ");
+            list.inorder();
+        } // insertTest3
 } // BSTTester

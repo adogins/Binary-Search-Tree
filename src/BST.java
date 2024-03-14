@@ -167,7 +167,7 @@ class BST {
                     } // fi
                     nodeToDelete.setParent(null);
                 } else {
-                    if (hasOneChild(nodeToDelete)){
+                    if (hasOneChild(nodeToDelete)) {
                         Node p = nodeToDelete.getParent();
                         if (nodeToDelete.getLeftChild() != null) {
                             replacement = nodeToDelete.getLeftChild();
@@ -275,7 +275,10 @@ class BST {
         } // if
     } // isLeaf
     private boolean hasOneChild(Node n) {
-        if ((isLeaf(n.getLeftChild()) && n.getRightChild() == null) || (isLeaf(n.getRightChild()) && n.getLeftChild() == null)) {
+        if (n.getLeftChild() != null && n.getRightChild() == null) {
+            return true;
+        } // if
+        if (n.getRightChild() != null && n.getLeftChild() == null) {
             return true;
         } // if
         return false;
