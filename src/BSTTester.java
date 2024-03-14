@@ -1,17 +1,6 @@
 public class BSTTester {
     public static void main (String[] args) {
-        int num1, num2, num3, num4, num5, num6, num7, num8, num9;
-        num1 = 8;
-        num2 = 3;
-        num3 = 10;
-        num4 = 14;
-        num5 = 1;
-        num6 = 6;
-        num7 = 13;
-        num8 = 7;
-        num9 = 4;
-        String str = num1 + ", " + num2 + ", " + num3 + ", " + num4 + ", " + num5 + ", " + num6 + ", " + num7 + ", " + num8 + ", " + num9;
-        System.out.println("Numbers entered: " + str);
+        System.out.println("Test Cases");
         runTests();
         } // main
         public static void runTests() {
@@ -39,6 +28,10 @@ public class BSTTester {
             deleteTest6();
             System.out.println("-----------------------------------------------------------------------------------------------------------");
             insertTest3();
+            System.out.println("-----------------------------------------------------------------------------------------------------------");
+            insertTest4();
+            System.out.println("-----------------------------------------------------------------------------------------------------------");
+            duplicateTest();
             System.out.println("-----------------------------------------------------------------------------------------------------------");
         } // runTests
         public static void insertTest() {
@@ -346,6 +339,7 @@ public class BSTTester {
             System.out.println("Inorder: ");
             list.inorder();
         } // deleteTest6
+        // Testing inserting many nodes and testing deletion of a node with one child.
         public static void insertTest3() {
             BST list = new BST();
             int num1 = 582;
@@ -398,4 +392,84 @@ public class BSTTester {
             System.out.println("Inorder: ");
             list.inorder();
         } // insertTest3
+        public static void insertTest4() {
+            BST list = new BST();
+            list.insert(916);
+            list.insert(436);
+            list.insert(239);
+            list.insert(841);
+            list.insert(10);
+            list.insert(903);
+            list.insert(95);
+            list.insert(971);
+            list.insert(342);
+            list.insert(345);
+            list.insert(273);
+            list.insert(351);
+            list.insert(549);
+            list.insert(458);
+            list.insert(261);
+            list.insert(27);
+            list.insert(4);
+            list.insert(444);
+            list.insert(826);
+            list.insert(103);
+            list.insert(138);
+            list.insert(400);
+            list.insert(37);
+            list.insert(240);
+            list.insert(53);
+            list.insert(483);
+            list.insert(61);
+            list.insert(344);
+            list.insert(934);
+            list.insert(16);
+            list.insert(548);
+            list.insert(931);
+            list.insert(340);
+            list.insert(38);
+            list.insert(205);
+            list.insert(488);
+            list.insert(70);
+            list.insert(232);
+            list.insert(702);
+            list.insert(821);
+            list.insert(850);
+            list.insert(654);
+            list.insert(135);
+            list.insert(418);
+            list.insert(231);
+            list.insert(670);
+            list.insert(382);
+            list.insert(304);
+            list.insert(960);
+            list.insert(131);
+            System.out.println("Insert Test 4");
+            System.out.println("Size: " + list.size());
+            System.out.println("Preorder:");
+            list.preorder();
+            System.out.println("Postorder: ");
+            list.postorder();
+            System.out.println("Inorder: ");
+            list.inorder();
+        } // insertTest4
+        public static void duplicateTest() {
+            BST list = new BST();
+            list.insert(1);
+            list.insert(2);
+            list.insert(3);
+            list.insert(4);
+            list.insert(5);
+            list.insert(6);
+            list.insert(7);
+            list.insert(5);
+            System.out.println("Duplicate Test");
+            System.out.println("Size: " + list.size());
+            System.out.println("Preorder:");
+            list.preorder();
+            System.out.println("Postorder: ");
+            list.postorder();
+            System.out.println("Inorder: ");
+            list.inorder();
+        } // duplicateTest
 } // BSTTester
