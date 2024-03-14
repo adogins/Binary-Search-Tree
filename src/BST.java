@@ -63,10 +63,20 @@ class BST {
     } // BST (Contructor)
 
     // Methods
+    
+    /**
+     * @return the number of nodes in the tree.
+     */
     public int size() {
         return this.counter;
     } // size
-    
+     
+    /**
+     * Allows a new node containing a nonnegative int to be added to the Binary Search Tree (BST). 
+     * If the element is greater than the one in the current node it goes to the right until an "empty" space is found.
+     * If the element is less than the one in the current node it goes to the left until an "empty" space is found.
+     * @param element is the int that's beign added in a new node in the tree.
+     */
     public void insert(int element) {
         // Exception for improper input
         if (element < 0) {
@@ -107,6 +117,11 @@ class BST {
         } // if
     } // insert
 
+    /**
+     * Allows a specific node containing the element to be removed from the tree while readjusting the children
+     * to comply with the contraints of a Binary Search Tree. 
+     * @param element is the int that identifies the value and node to remove from the tree.
+     */
     public void delete(int element) {
         if (search(element) == null) {
             System.out.println("Element not found!");
@@ -150,11 +165,10 @@ class BST {
                         r.setParent(n);
                     } // if
                     this.root = n;
-            } // if
+                } // if
             } else {
                 if (isLeaf(nodeToDelete)){
                     Node p = nodeToDelete.getParent();
-                    //nodeToDelete.setParent(null);
                     if (p.getLeftChild() != null) {
                         if (p.getLeftChild().equals(nodeToDelete)) {
                             p.setLeftChild(null);
@@ -224,6 +238,9 @@ class BST {
         } // if
     } // delete
 
+    /**
+     * Prints the elements of the tree in the order defined by preorder (current, left, right).
+     */
     public void preorder() {
         if (this.size() == 0) {
             System.out.println("The tree is empty.");
@@ -233,6 +250,9 @@ class BST {
         } // if
     } // preorder
 
+    /**
+     * Prints the elements of the tree in the order defined by postorder (left, right, current).
+     */
     public void postorder() {
         if (this.size() == 0) {
             System.out.println("The tree is empty.");
@@ -242,6 +262,9 @@ class BST {
         } // if
     } // postorder
 
+    /**
+     * Prints the elements of the tree in the order in increasing order (left, current, right).
+     */
     public void inorder() {
         if (this.size() == 0) {
             System.out.println("The tree is empty.");
@@ -250,8 +273,12 @@ class BST {
             System.out.println();
         } // if
     } // inorder
-
-    // Searches for a node by the element it holds and returns the address of the node
+    
+    /**
+     * Looks for a specific element in the tree.
+     * @param element is the number being searched for in the tree.
+     * @return the Node that the element is located in or null if the element isn't in the tree.
+     */
     private Node search(int element) {
         Node current = this.root;
         while (current != null) {
@@ -267,6 +294,13 @@ class BST {
         } // while
         return null;
     } // search
+
+    /**
+     * Determines if a specific node is a leaf in the tree.
+     * @param n is the node that's being evaulated as a leaf or not.
+     * @return true if the node is a leaf (both children are null).
+     * @return false if the node is not a leaf (one or both children are not null).
+     */
     private boolean isLeaf(Node n) {
         if (n.getLeftChild() == null && n.getRightChild() == null) {
             return true;
@@ -274,6 +308,13 @@ class BST {
             return false;
         } // if
     } // isLeaf
+
+    /**
+     * Determines is a specific node only has one child.
+     * @param n is the node to evaluate.
+     * @return true if the node has a right/left child that's null and a right/left child that's not null.
+     * @return false if the node's children are both null, or both are not null.
+     */
     private boolean hasOneChild(Node n) {
         if (n.getLeftChild() != null && n.getRightChild() == null) {
             return true;
@@ -283,6 +324,11 @@ class BST {
         } // if
         return false;
     } // hasOneChild
+
+    /**
+     * Recursively prints out the elements of the tree in preorder.
+     * @param n is the node to start at.
+     */
     private void recursivePreorder(Node n) {
         if (n == null) {
             return;
@@ -292,6 +338,11 @@ class BST {
             recursivePreorder(n.getRightChild());
         } // if
     } // recursivePreorder
+
+    /**
+     * Recursively prints out the elements of the tree in postorder.
+     * @param n is the node to start at.
+     */
     private void recursivePostorder(Node n) {
         if (n == null) {
             return;
@@ -301,6 +352,11 @@ class BST {
             System.out.print(n.getKey() + " ");
         } // if 
     } // recursivePostorder
+
+    /**
+     * Recursively prints out the elements of the tree in inorder.
+     * @param n is the node to start at.
+     */
     private void recursiveInorder(Node n) {
         if (n == null) {
             return;
@@ -310,4 +366,5 @@ class BST {
             recursiveInorder(n.getRightChild());
         } // if
     } // recursiveInorder
+    
 } // BST (Class)
