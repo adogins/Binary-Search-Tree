@@ -80,39 +80,40 @@ class BST {
     public void insert(int element) {
         // Exception for improper input
         if (element < 0) {
-            throw new IllegalArgumentException("The number entered is negative. Enter a nonnegative number.");
-        } // if
-        if (search(element) != null) {
-            System.out.println("Element is already in the tree!");
+            System.out.println("The number entered is negative. Enter a nonnegative integer.");
         } else {
-            Node current = this.root;
-            boolean inserting = true;
-            // Adds a root
-            if (this.size() == 0) {
-                this.root = new Node(element);
-                this.counter++;
+            if (search(element) != null) {
+                System.out.println("Element is already in the tree!");
             } else {
-                while(inserting) {
-                    // If the element is less than the current node
-                    if (element < current.getKey()) {
-                        if (current.getLeftChild() != null) {
-                            current = current.getLeftChild();
+                Node current = this.root;
+                boolean inserting = true;
+                // Adds a root
+                if (this.size() == 0) {
+                    this.root = new Node(element);
+                    this.counter++;
+                } else {
+                    while(inserting) {
+                        // If the element is less than the current node
+                        if (element < current.getKey()) {
+                            if (current.getLeftChild() != null) {
+                                current = current.getLeftChild();
+                            } else {
+                                current.setLeftChild(new Node(element, current,null, null));
+                                inserting = false;
+                                this.counter++;
+                            } // if 
                         } else {
-                            current.setLeftChild(new Node(element, current,null, null));
-                            inserting = false;
-                            this.counter++;
-                        } // if 
-                    } else {
-                        // If the element is greater than the current node
-                        if (current.getRightChild() != null) {
-                            current = current.getRightChild();
-                        } else {
-                            current.setRightChild(new Node(element, current, null, null));
-                            inserting = false;
-                            this.counter++;
+                            // If the element is greater than the current node
+                            if (current.getRightChild() != null) {
+                                current = current.getRightChild();
+                            } else {
+                                current.setRightChild(new Node(element, current, null, null));
+                                inserting = false;
+                                this.counter++;
+                            } // if
                         } // if
-                    } // if
-                } // while
+                    } // while
+                } // if
             } // if
         } // if
     } // insert

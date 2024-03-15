@@ -33,6 +33,8 @@ public class BSTTester {
             System.out.println("-----------------------------------------------------------------------------------------------------------");
             duplicateTest();
             System.out.println("-----------------------------------------------------------------------------------------------------------");
+            inputTest();
+            System.out.println("-----------------------------------------------------------------------------------------------------------");
         } // runTests
         public static void insertTest() {
             BST list = new BST();
@@ -472,4 +474,20 @@ public class BSTTester {
             System.out.println("Inorder: ");
             list.inorder();
         } // duplicateTest
+        public static void inputTest() {
+            BST list = new BST();
+            list.insert(8);
+            list.insert(17);
+            list.insert(87);
+            list.insert(-9);
+            list.insert(45);
+            System.out.println("Negative number test");
+            System.out.println("Size: " + list.size());
+            System.out.println("Preorder:");
+            list.preorder();
+            System.out.println("Postorder: ");
+            list.postorder();
+            System.out.println("Inorder: ");
+            list.inorder();
+        } // inputTest
 } // BSTTester
