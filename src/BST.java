@@ -132,7 +132,28 @@ class BST {
             if (nodeToDelete.equals(this.root)) {
                 Node r = this.root.getRightChild();
                 Node l = this.root.getLeftChild();
-                if (r == null) {
+                if (l == null) {
+                    Node n = this.root.getRightChild();
+                    while (n.getLeftChild() != null) {
+                        n = n.getLeftChild();
+                    } // while
+                    if (n.equals(r)) {
+                        n.setParent(null);
+                        n.setLeftChild(l);
+                        //l.setParent(n);
+                    } else {
+                        n.getParent().setLeftChild(null);
+                        if (n.getParent().getLeftChild() != null) {
+                            n.getParent().setRightChild((n.getLeftChild()));
+                        } // if
+                        n.setParent(null);
+                        n.setLeftChild(l);
+                        //l.setParent(n);
+                        n.setRightChild(r);
+                        r.setParent(n);
+                    } // if
+                    this.root = n;
+                } else {
                     Node n = this.root.getLeftChild();
                     while(n.getRightChild() != null) {
                         n = n.getRightChild();
@@ -142,28 +163,13 @@ class BST {
                         n.setRightChild(r);
                     } else {
                         n.getParent().setRightChild(null);
+                        if (n.getLeftChild() != null) {
+                            n.getParent().setRightChild(n.getLeftChild());
+                        } // if
                         n.setParent(null);
                         n.setLeftChild(l);
                         l.setParent(n);
                         n.setRightChild(r);
-                    } // if
-                    this.root = n;
-                } else {
-                    Node n = this.root.getRightChild();
-                    while (n.getLeftChild() != null) {
-                        n = n.getLeftChild();
-                    } // while
-                    if (n.equals(r)) {
-                        n.setParent(null);
-                        n.setLeftChild(l);
-                        l.setParent(n);
-                    } else {
-                        n.getParent().setLeftChild(null);
-                        n.setParent(null);
-                        n.setLeftChild(l);
-                        l.setParent(n);
-                        n.setRightChild(r);
-                        r.setParent(n);
                     } // if
                     this.root = n;
                 } // if
@@ -205,20 +211,7 @@ class BST {
                         Node l = nodeToDelete.getLeftChild();
                         Node r = nodeToDelete.getRightChild();
 
-                    if (element < this.root.getKey()) {
-                            Node n = nodeToDelete;
-                            while (n.getRightChild() != null) {
-                                n = n.getRightChild();
-                            } // while
-                            n.setParent(p);
-                            if (p != null) {
-                                p.setRightChild(n);
-                            } // if
-                            n.setLeftChild(l);
-                            if (!n.equals(r)) {
-                                n.setRightChild(r);
-                            } // if
-                        } else {
+                    if (element > this.root.getKey()) {
                             Node n = nodeToDelete;
                             while (n.getLeftChild() != null) {
                                 n = n.getLeftChild();
@@ -230,6 +223,19 @@ class BST {
                             n.setRightChild(r);
                             if (!n.equals(l)) {
                                 n.setLeftChild(l);
+                            } // if
+                        } else {
+                            Node n = nodeToDelete;
+                            while (n.getRightChild() != null) {
+                                n = n.getRightChild();
+                            } // while
+                            n.setParent(p);
+                            if (p != null) {
+                                p.setRightChild(n);
+                            } // if
+                            n.setLeftChild(l);
+                            if (!n.equals(r)) {
+                                n.setRightChild(r);
                             } // if
                         } // if
                     } // if

@@ -5,8 +5,8 @@ public class BSTTester {
     public static void main (String[] args) {
         System.out.println("Test");
         /* Uncomment generalTest if you want to enter numbers as input from the keyboard */
-        generalTest();
-        //runTests();
+        //generalTest();
+        runTests();
         } // main
         public static void generalTest() {
             test1();
@@ -294,28 +294,17 @@ public class BSTTester {
         } // insertTest2
         public static void deleteTest5() {
             BST list = new BST();
-            int num1 = 8;
-            int num2 = 3;
-            int num3 = 10;
-            int num4 = 14;
-            int num5 = 1;
-            int num6 = 6;
-            int num7 = 13;
-            int num8 = 7;
-            int num9 = 4;
-            list.insert(num1);
-            list.insert(num2);
-            list.insert(num3);
-            list.insert(num4);
-            list.insert(num5);
-            list.insert(num6);
-            list.insert(num7);
-            list.insert(num8);
-            list.insert(num9);
-            list.delete(num1);
-            list.delete(num3);
-            list.delete(num7);
-            list.delete(num4);
+            list.insert(8);
+            list.insert(3);
+            list.insert(10);
+            list.insert(14);
+            list.insert(1);
+            list.insert(6);
+            list.insert(13);
+            list.insert(7);
+            list.insert(4);
+            list.delete(8);
+            list.delete(7);
             System.out.println("Delete Test 5");
             System.out.println("Size: " + list.size());
             System.out.println("Preorder:");
@@ -550,3 +539,4 @@ public class BSTTester {
             input.close();
         } // test1
 } // BSTTester
+
