@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class BSTTester {
     public static void main (String[] args) {
         System.out.println("Test");
+        /* Uncomment generalTest if you want to enter numbers as input from the keyboard */
         generalTest();
         //runTests();
         } // main
