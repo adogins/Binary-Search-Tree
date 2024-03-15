@@ -1,8 +1,15 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class BSTTester {
     public static void main (String[] args) {
-        System.out.println("Test Cases");
-        runTests();
+        System.out.println("Test");
+        generalTest();
+        //runTests();
         } // main
+        public static void generalTest() {
+            test1();
+        } // generalTest
         public static void runTests() {
             System.out.println("-----------------------------------------------------------------------------------------------------------");
             insertTest();
@@ -490,4 +497,55 @@ public class BSTTester {
             System.out.println("Inorder: ");
             list.inorder();
         } // inputTest
+        public static void test1() {
+            BST list = new BST();
+            Scanner input = new Scanner(System.in);
+            ArrayList<Integer> nums = new ArrayList<Integer>();
+            System.out.println("Only enter nonnegative integers");
+            System.out.println("List the amount of numbers you're entering: ");
+            int max = input.nextInt();
+            for (int i = 0; i < max; i++) {
+                System.out.println("Enter a number: ");
+                int x = input.nextInt();
+                list.insert(x);
+                nums.add(x);
+            } // for
+            String numbers = "";
+            for (int i = 0; i < nums.size(); i++) {
+                numbers += "" + nums.get(i) + ", ";
+            } // for
+            System.out.println("Do you want to delete any numbers? (y/n): ");
+            String answer = input.next();
+            if (answer.equalsIgnoreCase("y")){
+                System.out.println("How many elements do you want to delete?: ");
+                int deleteAmt = input.nextInt();
+                System.out.println("Numbers Entered: " + numbers.substring(0, numbers.length() - 2));
+                for (int i = 0; i < deleteAmt; i++) {
+                    System.out.println("Enter a number in the list to delete: ");
+                    int deleteElement = input.nextInt();
+                    nums.remove(nums.indexOf(deleteElement));
+                    list.delete(deleteElement);
+                } // for
+                System.out.println("Reulting Orders of the tree");
+                System.out.println("Numbers Entered: " + numbers.substring(0, numbers.length() - 2));
+                System.out.println("Size: " + list.size());
+                System.out.println("Preorder:");
+                list.preorder();
+                System.out.println("Postorder: ");
+                list.postorder();
+                System.out.println("Inorder: ");
+                list.inorder();
+            } else if (answer.equalsIgnoreCase("n")) {
+                System.out.println("Reulting Orders of the tree");
+                System.out.println("Numbers Entered: " + numbers.substring(0, numbers.length() - 2));
+                System.out.println("Size: " + list.size());
+                System.out.println("Preorder:");
+                list.preorder();
+                System.out.println("Postorder: ");
+                list.postorder();
+                System.out.println("Inorder: ");
+                list.inorder();
+            } // if
+            input.close();
+        } // test1
 } // BSTTester
