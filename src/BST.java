@@ -168,8 +168,14 @@ class BST {
                         } // if
                         n.setParent(null);
                         n.setLeftChild(l);
-                        l.setParent(n);
+                        if (l != null) {
+                            l.setParent(n);
+                        } // if
+                        //l.setParent(n);
                         n.setRightChild(r);
+                        if (r != null) {
+                            r.setParent(n);
+                        } // if
                     } // if
                     this.root = n;
                 } // if
@@ -211,31 +217,144 @@ class BST {
                         Node l = nodeToDelete.getLeftChild();
                         Node r = nodeToDelete.getRightChild();
 
-                    if (element > this.root.getKey()) {
-                            Node n = nodeToDelete;
-                            while (n.getLeftChild() != null) {
-                                n = n.getLeftChild();
-                            } // while
-                            n.setParent(p);
-                            if (p != null) {
+                        nodeToDelete.setParent(null);
+                        nodeToDelete.setLeftChild(null);
+                        nodeToDelete.setRightChild(null);
+
+                        if (element > this.root.getKey()) {
+                            if (p.equals(this.root)) {
+                                Node node = r;
+                                while (node.getLeftChild() != null) {
+                                    node = node.getLeftChild();
+                                } // while
+                                Node np = node.getParent();
+                                Node nr = node.getRightChild();
+                                node.setParent(null);
+                                if (nr != null) {
+                                    if (np == nodeToDelete) {
+                                        nr.setParent(np);
+                                        np.setRightChild(nr);
+                                    } else {
+                                        nr.setParent(np);
+                                        np.setRightChild(nr);
+                                    } // if 
+                                } // if
+                                node.setParent(p);
+                                p.setRightChild(node);
+                                if (node != r) {
+                                    node.setRightChild(r);
+                                    if (r != null) {
+                                        r.setParent(node);
+                                    } // if
+                                } // if
+                                if (node != l) {
+                                    node.setLeftChild(l);
+                                    if (l != null) {
+                                        l.setParent(node);
+                                    } // if
+                                } // if 
+                            } else {
+                                Node n = r;
+                                while (n.getLeftChild() != null) {
+                                    n = n.getLeftChild();
+                                } // while
+                                Node np = n.getParent();
+                                Node nr = n.getRightChild();
+                                n.setParent(null);
+                                if (nr != null) {
+                                    if (np == nodeToDelete) {
+                                        nr.setParent(p);
+                                        np.setLeftChild(nr);
+                                    } else {
+                                        nr.setParent(p);
+                                        np.setRightChild(nr);
+                                    } // if 
+                                    //nr.setParent(np);
+                                    //np.setLeftChild(nr);
+                                } // if
+                                n.setParent(p);
                                 p.setLeftChild(n);
-                            } // if
-                            n.setRightChild(r);
-                            if (!n.equals(l)) {
+                                n.setRightChild(r);
+                                if (n != r) {
+                                    n.setRightChild(r); 
+                                    if (r != null) {
+                                        r.setParent(n);
+                                    } // if
+                                } // if
                                 n.setLeftChild(l);
+                                if (n != l) {
+                                    n.setLeftChild(l);
+                                    if (l != null) {
+                                        l.setParent(n);
+                                    } // i
+                                } // if
                             } // if
                         } else {
-                            Node n = nodeToDelete;
-                            while (n.getRightChild() != null) {
-                                n = n.getRightChild();
-                            } // while
-                            n.setParent(p);
-                            if (p != null) {
+                            if (p.equals(this.root)) {
+                                Node node = l;
+                                while (node.getRightChild() != null) {
+                                    node = node.getRightChild();
+                                } // while
+                                Node np = node.getParent();
+                                np.setRightChild(null);
+                                Node nl = node.getLeftChild();
+                                node.setParent(null);
+                                if (nl != null) {
+                                    if (np == nodeToDelete) {
+                                        nl.setParent(np);
+                                        np.setRightChild(nl);
+                                    } else {
+                                        nl.setParent(np);
+                                        np.setRightChild(nl);
+                                    } // if 
+                                } // if
+                                node.setParent(p);
+                                p.setLeftChild(node);
+                                if (node != r) {
+                                    node.setRightChild(r);
+                                    if (r != null) {
+                                        r.setParent(node);
+                                    } // if
+                                } // if
+                                if (node != l) {
+                                    node.setLeftChild(l);
+                                    if (l != null) {
+                                        l.setParent(node);
+                                    } // if
+                                } // if 
+                            } else {
+                                Node n = l;
+                                while (n.getRightChild() != null) {
+                                    n = n.getRightChild();
+                                } // while
+                                Node np = n.getParent();
+                                np.setLeftChild(null);
+                                Node nl = n.getLeftChild();
+                                n.setParent(null);
+                                if (nl != null) {
+                                    if (np == nodeToDelete) {
+                                        nl.setParent(p);
+                                        np.setRightChild(nl);
+                                    } else {
+                                        nl.setParent(p);
+                                        np.setRightChild(nl);
+                                    } // if 
+                                } // if
+                                n.setParent(p);
                                 p.setRightChild(n);
-                            } // if
-                            n.setLeftChild(l);
-                            if (!n.equals(r)) {
-                                n.setRightChild(r);
+                                if (n != r) {
+                                    n.setRightChild(r);
+                                    if (r != null) {
+                                        r.setParent(n);
+                                    } // if
+                                } // if
+                                //n.setRightChild(r);
+                                if ( n != l) {
+                                    n.setLeftChild(l);
+                                    if (l != null) {
+                                        l.setParent(n);
+                                    } // if
+                                } // if 
                             } // if
                         } // if
                     } // if
