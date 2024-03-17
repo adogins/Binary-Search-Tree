@@ -5,12 +5,9 @@ public class BSTTester {
     public static void main (String[] args) {
         System.out.println("Test");
         /* Uncomment generalTest if you want to enter numbers as input from the keyboard */
-        //generalTest();
-        runTests();
+        test1();
+        //runTests();
         } // main
-        public static void generalTest() {
-            test1();
-        } // generalTest
         public static void runTests() {
             System.out.println("-----------------------------------------------------------------------------------------------------------");
             insertTest();
