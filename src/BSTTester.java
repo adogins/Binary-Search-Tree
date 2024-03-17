@@ -5,8 +5,8 @@ public class BSTTester {
     public static void main (String[] args) {
         System.out.println("Test");
         /* Uncomment generalTest if you want to enter numbers as input from the keyboard */
-        test1();
-        //runTests();
+        //test1();
+        runTests();
         } // main
         public static void runTests() {
             System.out.println("-----------------------------------------------------------------------------------------------------------");
@@ -41,6 +41,14 @@ public class BSTTester {
             inputTest();
             System.out.println("-----------------------------------------------------------------------------------------------------------");
             deleteTest7();
+            System.out.println("-----------------------------------------------------------------------------------------------------------");
+            deleteTest8();
+            System.out.println("-----------------------------------------------------------------------------------------------------------");
+            deleteTest9();
+            System.out.println("-----------------------------------------------------------------------------------------------------------");
+            deleteTest10();
+            System.out.println("-----------------------------------------------------------------------------------------------------------");
+            deleteTest11();
             System.out.println("-----------------------------------------------------------------------------------------------------------");
         } // runTests
         public static void insertTest() {
@@ -564,5 +572,100 @@ public class BSTTester {
             System.out.println("Inorder: ");
             list.inorder();
         } // deleteTest7
+        public static void deleteTest8() {
+            BST list = new BST();
+            list.insert(470);
+            list.insert(234);
+            list.insert(458);
+            list.insert(619);
+            list.insert(165);
+            list.insert(956);
+            list.insert(998);
+            list.insert(240);
+            list.insert(800);
+            list.insert(473);
+            list.insert(777);
+            list.insert(12);
+            list.delete(619);
+            System.out.println("Delete Test 8");
+            System.out.println("Size: " + list.size());
+            System.out.println("Preorder:");
+            list.preorder();
+            System.out.println("Postorder: ");
+            list.postorder();
+            System.out.println("Inorder: ");
+            list.inorder();
+        } // deleteTest8
+        public static void deleteTest9() {
+            BST list = new BST();
+            list.insert(123);
+            list.insert(577);
+            list.insert(6);
+            list.insert(218);
+            list.insert(176);
+            list.insert(353);
+            list.insert(876);
+            list.insert(806);
+            list.insert(951);
+            list.insert(304);
+            list.insert(834);
+            list.insert(995);
+            list.delete(577);
+            System.out.println("Delete Test 9");
+            System.out.println("Size: " + list.size());
+            System.out.println("Preorder:");
+            list.preorder();
+            System.out.println("Postorder: ");
+            list.postorder();
+            System.out.println("Inorder: ");
+            list.inorder();
+        } // deleteTest9
+        public static void deleteTest10() {
+            BST list = new BST();
+            list.insert(1);
+            list.insert(86);
+            list.insert(42);
+            list.insert(98);
+            list.insert(88);
+            list.insert(72);
+            list.insert(94);
+            list.insert(79);
+            list.insert(77);
+            list.insert(93);
+            list.insert(65);
+            list.delete(86);
+            System.out.println("Delete Test 10");
+            System.out.println("Size: " + list.size());
+            System.out.println("Preorder:");
+            list.preorder();
+            System.out.println("Postorder: ");
+            list.postorder();
+            System.out.println("Inorder: ");
+            list.inorder();
+        } // deleteTest10
+        public static void deleteTest11() {
+            BST list = new BST();
+            list.insert(97);
+            list.insert(35);
+            list.insert(62);
+            list.insert(34);
+            list.insert(19);
+            list.insert(50);
+            list.insert(70);
+            list.insert(68);
+            list.insert(45);
+            list.insert(91);
+            list.insert(60);
+            list.insert(22);
+            list.delete(62);
+            System.out.println("Delete Test 11");
+            System.out.println("Size: " + list.size());
+            System.out.println("Preorder:");
+            list.preorder();
+            System.out.println("Postorder: ");
+            list.postorder();
+            System.out.println("Inorder: ");
+            list.inorder();
+        } // deleteTest11
 } // BSTTester
 

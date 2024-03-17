@@ -222,144 +222,70 @@ class BST {
                         nodeToDelete.setParent(null);
                         nodeToDelete.setLeftChild(null);
                         nodeToDelete.setRightChild(null);
-                        if (element > this.root.getKey()) {
-                            // if node being removed is the root of the right subtree
-                            if (p.equals(this.root)) {
-                                Node node = r;
-                                while (node.getLeftChild() != null) {
-                                    node = node.getLeftChild();
-                                } // while
-                                Node np = node.getParent();
-                                Node nr = node.getRightChild();
-                                node.setParent(null);
-                                if (nr != null) {
-                                    if (np == nodeToDelete) {
-                                        nr.setParent(np);
-                                        np.setRightChild(nr);
-                                    } else {
-                                        nr.setParent(np);
-                                        np.setRightChild(nr);
-                                    } // if 
-                                } // if
-                                node.setParent(p);
+                        if (l != null) {
+                            // left subtree under deleted node
+                            Node node = l;
+                            while (node.getRightChild() != null) {
+                                node = node.getRightChild();
+                            } // while
+                            Node nodeParent = node.getParent();
+                            Node nodeChild = node.getLeftChild();
+                            if (nodeChild != null) {
+                                nodeChild.setParent(nodeParent);
+                                nodeParent.setRightChild(nodeChild);
+                            } else {
+                                nodeParent.setRightChild(null);
+                            } // if 
+                            node.setParent(p);
+                            if (p.equals(this.root) && nodeToDelete.getKey() < this.root.getKey()) {
+                              p.setLeftChild(node);  
+                            } else {
                                 p.setRightChild(node);
-                                if (node != r) {
-                                    node.setRightChild(r);
-                                    if (r != null) {
-                                        r.setParent(node);
-                                    } // if
-                                } // if
-                                if (node != l) {
-                                    node.setLeftChild(l);
-                                    if (l != null) {
-                                        l.setParent(node);
-                                    } // if
-                                } // if 
-                            } else {
-                                // removes random node and checks right subtree for replacement
-                                Node n = r;
-                                while (n.getLeftChild() != null) {
-                                    n = n.getLeftChild();
-                                } // while
-                                Node np = n.getParent();
-                                Node nr = n.getRightChild();
-                                n.setParent(null);
-                                if (nr != null) {
-                                    if (np == nodeToDelete) {
-                                        nr.setParent(p);
-                                        np.setLeftChild(nr);
-                                    } else {
-                                        nr.setParent(p);
-                                        np.setRightChild(nr);
-                                    } // if 
-                                } // if
-                                n.setParent(p);
-                                p.setLeftChild(n);
-                                n.setRightChild(r);
-                                if (n != r) {
-                                    n.setRightChild(r); 
-                                    if (r != null) {
-                                        r.setParent(n);
-                                    } // if
-                                } // if
-                                n.setLeftChild(l);
-                                if (n != l) {
-                                    n.setLeftChild(l);
-                                    if (l != null) {
-                                        l.setParent(n);
-                                    } // i
-                                } // if
                             } // if
+                            if (node != r) {
+                                node.setRightChild(r);
+                            } // if
+                            if (node != l) {
+                                node.setLeftChild(l);
+                            } // if
+                            if (l != null) {
+                                l.setParent(node);
+                            } // if
+                            if (r != null) {
+                                r.setParent(node);
+                            } // if
+
                         } else {
-                            // if node being removed is the root of the left subtree
-                            if (p.equals(this.root)) {
-                                Node node = l;
-                                while (node.getRightChild() != null) {
-                                    node = node.getRightChild();
-                                } // while
-                                Node np = node.getParent();
-                                np.setRightChild(null);
-                                Node nl = node.getLeftChild();
-                                node.setParent(null);
-                                if (nl != null) {
-                                    if (np == nodeToDelete) {
-                                        nl.setParent(np);
-                                        np.setRightChild(nl);
-                                    } else {
-                                        nl.setParent(np);
-                                        np.setRightChild(nl);
-                                    } // if 
-                                } // if
-                                node.setParent(p);
-                                p.setLeftChild(node);
-                                if (node != r) {
-                                    node.setRightChild(r);
-                                    if (r != null) {
-                                        r.setParent(node);
-                                    } // if
-                                } // if
-                                if (node != l) {
-                                    node.setLeftChild(l);
-                                    if (l != null) {
-                                        l.setParent(node);
-                                    } // if
-                                } // if 
-                            } else {
-                                // removes random node and checks left subtree for a replacement
-                                Node n = l;
-                                while (n.getRightChild() != null) {
-                                    n = n.getRightChild();
-                                } // while
-                                Node np = n.getParent();
-                                np.setLeftChild(null);
-                                Node nl = n.getLeftChild();
-                                n.setParent(null);
-                                if (nl != null) {
-                                    if (np == nodeToDelete) {
-                                        nl.setParent(p);
-                                        np.setRightChild(nl);
-                                    } else {
-                                        nl.setParent(p);
-                                        np.setRightChild(nl);
-                                    } // if 
-                                } // if
-                                n.setParent(p);
-                                p.setRightChild(n);
-                                if (n != r) {
-                                    n.setRightChild(r);
-                                    if (r != null) {
-                                        r.setParent(n);
-                                    } // if
-                                } // if
-                                if ( n != l) {
-                                    n.setLeftChild(l);
-                                    if (l != null) {
-                                        l.setParent(n);
-                                    } // if
-                                } // if 
+                            // right subtree under deleted node
+                            Node node = r;
+                            while (node.getLeftChild() != null) {
+                                node = node.getLeftChild();
+                            } // while
+                            Node nodeParent = node.getParent();
+                            Node nodeChild = node.getRightChild();
+                            if (nodeChild != null) {
+                                nodeChild.setParent(nodeParent);
+                                nodeParent.setLeftChild(nodeChild);
                             } // if
+                            node.setParent(p);
+                            if (p.equals(this.root)) {
+                                p.setRightChild(node);
+                            } else {
+                                p.setLeftChild(node);
+                            } // if
+                            nodeParent.setLeftChild(null);
+                            if (node != l) {
+                               node.setLeftChild(l); 
+                            } // if
+                            if (node != r) {
+                                node.setRightChild(r);
+                            } // if
+                            if (r != null) {
+                                r.setParent(node);
+                            } // if
+
                         } // if
-                    } // if
+                    } // if 
                 } // if
             } // if
             this.counter--;
@@ -494,5 +420,5 @@ class BST {
             recursiveInorder(n.getRightChild());
         } // if
     } // recursiveInorder
-    
+
 } // BST (Class)
