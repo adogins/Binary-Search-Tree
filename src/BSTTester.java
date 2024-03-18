@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class BSTTester {
     public static void main (String[] args) {
         System.out.println("Test");
-        /* Uncomment generalTest if you want to enter numbers as input from the keyboard */
+        /* Uncomment test1() if you want to enter numbers as input from the keyboard */
         //test1();
         runTests();
         } // main
@@ -645,19 +645,19 @@ public class BSTTester {
         } // deleteTest10
         public static void deleteTest11() {
             BST list = new BST();
-            list.insert(97);
-            list.insert(35);
-            list.insert(62);
-            list.insert(34);
-            list.insert(19);
-            list.insert(50);
+            list.insert(24);
+            list.insert(8);
+            list.insert(84);
             list.insert(70);
-            list.insert(68);
-            list.insert(45);
-            list.insert(91);
-            list.insert(60);
-            list.insert(22);
-            list.delete(62);
+            list.insert(3);
+            list.insert(77);
+            list.insert(20);
+            list.insert(80);
+            list.insert(71);
+            list.insert(63);
+            list.insert(93);
+            list.insert(5);
+            list.delete(24);
             System.out.println("Delete Test 11");
             System.out.println("Size: " + list.size());
             System.out.println("Preorder:");
