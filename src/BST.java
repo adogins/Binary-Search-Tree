@@ -420,5 +420,4 @@ class BST {
             recursiveInorder(n.getRightChild());
         } // if
     } // recursiveInorder
-
 } // BST (Class)
