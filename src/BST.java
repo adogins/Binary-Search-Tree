@@ -237,8 +237,10 @@ class BST {
                                 nodeParent.setRightChild(null);
                             } // if 
                             node.setParent(p);
-                            if (p.equals(this.root) && nodeToDelete.getKey() < this.root.getKey()) {
-                              p.setLeftChild(node);  
+                            if (p.equals(this.root) && node.getKey() < p.getKey()) {
+                                p.setLeftChild(node);  
+                            } else if (node.getKey() < p.getKey()) {
+                                p.setLeftChild(node);
                             } else {
                                 p.setRightChild(node);
                             } // if

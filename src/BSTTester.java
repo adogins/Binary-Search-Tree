@@ -50,6 +50,8 @@ public class BSTTester {
             System.out.println("-----------------------------------------------------------------------------------------------------------");
             deleteTest11();
             System.out.println("-----------------------------------------------------------------------------------------------------------");
+            deleteTest12();
+            System.out.println("-----------------------------------------------------------------------------------------------------------");
         } // runTests
         public static void insertTest() {
             BST list = new BST();
@@ -667,5 +669,42 @@ public class BSTTester {
             System.out.println("Inorder: ");
             list.inorder();
         } // deleteTest11
+        public static void deleteTest12() {
+            BST list = new BST();
+            list.insert(377);
+            list.insert(696);
+            list.insert(791);
+            list.insert(28);
+            list.insert(731);
+            list.insert(989);
+            list.insert(632);
+            list.insert(528);
+            list.insert(923);
+            list.insert(208);
+            list.insert(850);
+            list.insert(128);
+            list.insert(11);
+            list.insert(504);
+            list.insert(411);
+            list.insert(184);
+            list.insert(896);
+            list.insert(94);
+            list.insert(466);
+            list.insert(881);
+            list.insert(688);
+            list.insert(172);
+            list.insert(179);
+            list.insert(612);
+            list.insert(573);
+            list.delete(528);
+            System.out.println("Delete Test 12");
+            System.out.println("Size: " + list.size());
+            System.out.println("Preorder:");
+            list.preorder();
+            System.out.println("Postorder: ");
+            list.postorder();
+            System.out.println("Inorder: ");
+            list.inorder();
+        } // deleteTest12
 } // BSTTester
 
