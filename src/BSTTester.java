@@ -5,8 +5,14 @@ public class BSTTester {
     public static void main (String[] args) {
         System.out.println("Test");
         /* Uncomment test1() if you want to enter numbers as input from the keyboard */
-        //test1();
-        runTests();
+        try {
+            test1();
+        } catch (IndexOutOfBoundsException ioobe) {
+            System.out.println("Element not found!");
+        } catch (Throwable e) {
+            System.err.println(e);
+        } // try
+        //runTests();
         } // main
         public static void runTests() {
             System.out.println("-----------------------------------------------------------------------------------------------------------");
@@ -519,6 +525,7 @@ public class BSTTester {
                 System.out.println("How many elements do you want to delete?: ");
                 int deleteAmt = input.nextInt();
                 System.out.println("Numbers Entered: " + numbers.substring(0, numbers.length() - 2));
+                System.out.println("Delete numbers from the list above only.");
                 for (int i = 0; i < deleteAmt; i++) {
                     System.out.println("Enter a number in the list to delete: ");
                     int deleteElement = input.nextInt();
