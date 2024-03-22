@@ -4,15 +4,16 @@ import java.util.Scanner;
 public class BSTTester {
     public static void main (String[] args) {
         System.out.println("Test");
-        /* Uncomment test1() if you want to enter numbers as input from the keyboard */
-        try {
+        /* Uncomment test1() try block if you want to enter numbers as input from the keyboard */
+        /*try {
             test1();
         } catch (IndexOutOfBoundsException ioobe) {
             System.out.println("Element not found!");
         } catch (Throwable e) {
             System.err.println(e);
         } // try
-        //runTests();
+        */
+        runTests();
         } // main
         public static void runTests() {
             System.out.println("-----------------------------------------------------------------------------------------------------------");
