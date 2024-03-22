@@ -1,3 +1,6 @@
+/**
+* Creates node that can be "linked" together through references.
+ */
 class Node {
     private int key;
     private Node parent;
@@ -5,18 +8,35 @@ class Node {
     private Node rightChild;
 
     // Constructors
+
+    /**
+     * Creates an empty node with no determined factors.
+     */
     Node() {
         this.key = -1;
         this.parent = null;
         this.leftChild = null;
         this.rightChild = null;
     } // Node (Constructor)
+
+    /**
+     * Creates a node with a defined key.
+     * @param key is a defined value the node holds.
+     */
     Node(int key) {
         this.key = key;
         this.parent = null;
         this.leftChild = null;
         this.rightChild = null;
     } // Node (Constructor)
+
+    /**
+     * Creates a node with a defined key, parent, left child, and right child.
+     * @param key is the defined value the node holds.
+     * @param parent is a reference to the node that is the parent of the current node.
+     * @param leftChild is a reference to the node that has a key that is less than the current node.
+     * @param rightChild is a reference to the node that has a key that is greater than the current node.
+     */
     Node(int key, Node parent, Node leftChild, Node rightChild) {
         this.key = key;
         this.parent = parent;
@@ -25,33 +45,75 @@ class Node {
     } // Node (Constructor)
 
     // Getters
+    /**
+     * @return the key of the calling node.
+     */
     public int getKey() {
         return this.key;
     } // getKey
+
+    /**
+     * @return the reference to the parent node of the calling node.
+     */
     public Node getParent() {
         return this.parent;
     } // getParent
+
+    /**
+     * @return the reference to the left child node of the calling node.
+     */
     public Node getLeftChild() {
         return this.leftChild;
     } // getLeftChild
+
+    /**
+     * @return the reference to the right child node of the calling node.
+     */
     public Node getRightChild() {
         return this.rightChild;
     } // getRightChild
 
     // Setters
+
+    /**
+     * Sets the key of the node to the given int.
+     * @param key the defined int value for the key.
+     */
     public void setKey(int key){
         this.key = key;
     } // setKey
+
+    /**
+     * Sets the parent node to the given node.
+     * @param parent a reference to a node that should be the current node's parent.
+     */
     public void setParent(Node parent) {
         this.parent = parent;  
     } // setParent
+
+    /**
+     * Sets the left child node to the given node.
+     * @param leftChild a reference to a node that should be the current node's left child.
+     */
     public void setLeftChild(Node leftChild) {
         this.leftChild = leftChild;
     } // setLeftChild
+
+    /**
+     * Sets the right child node to the given node.
+     * @param rightChild a reference to a node that should be the current node's right child.
+     */
     public void setRightChild(Node rightChild) {
         this.rightChild = rightChild;
     } // setRightChild
 } // Node (Class)
+
+/**
+     * Creates a binary tree which stores the a value for the key and 
+     * stores references to the parent node, left child node and right
+     * child node. Also allows functions to be performed and retrieved 
+     * from the tree. 
+     */
 class BST {
     private Node root;
     private int counter;
@@ -256,7 +318,6 @@ class BST {
                             if (r != null) {
                                 r.setParent(node);
                             } // if
-
                         } else {
                             // right subtree under deleted node
                             Node node = r;
