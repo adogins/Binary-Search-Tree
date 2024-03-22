@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class BSTTester {
     public static void main (String[] args) {
         System.out.println("Test");
-        /* Uncomment test1() try block if you want to enter numbers as input from the keyboard */
+        /* general tester (stops when a number that can't be deleted though) */
         /*try {
             test1();
         } catch (IndexOutOfBoundsException ioobe) {
