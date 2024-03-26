@@ -5,15 +5,15 @@ public class BSTTester {
     public static void main (String[] args) {
         System.out.println("Test");
         /* general tester (stops when a number that can't be deleted though) */
-        try {
+        /*try {
             test1();
         } catch (IndexOutOfBoundsException ioobe) {
             System.out.println("Element not found!");
         } catch (Throwable e) {
             System.err.println(e);
         } // try
-        //*/
-        //runTests();
+        */
+        runTests();
         } // main
         public static void runTests() {
             System.out.println("-----------------------------------------------------------------------------------------------------------");
