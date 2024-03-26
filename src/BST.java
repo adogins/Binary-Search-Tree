@@ -1,6 +1,6 @@
 /**
 * Creates node that can be "linked" together through references.
- */
+*/
 class Node {
     private int key;
     private Node parent;
@@ -109,11 +109,11 @@ class Node {
 } // Node (Class)
 
 /**
-     * Creates a binary tree which stores the a value for the key and 
-     * stores references to the parent node, left child node and right
-     * child node. Also allows functions to be performed and retrieved 
-     * from the tree. 
-     */
+* Creates a binary tree which stores the a value for the key and 
+* stores references to the parent node, left child node and right
+* child node. Also allows functions to be performed and retrieved 
+* from the tree. 
+*/
 class BST {
     private Node root;
     private int counter;
@@ -346,7 +346,6 @@ class BST {
                             if (r != null) {
                                 r.setParent(node);
                             } // if
-
                         } // if
                     } // if 
                 } // if

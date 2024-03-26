@@ -5,15 +5,15 @@ public class BSTTester {
     public static void main (String[] args) {
         System.out.println("Test");
         /* general tester (stops when a number that can't be deleted though) */
-        /*try {
+        try {
             test1();
         } catch (IndexOutOfBoundsException ioobe) {
             System.out.println("Element not found!");
         } catch (Throwable e) {
             System.err.println(e);
         } // try
-        */
-        runTests();
+        //*/
+        //runTests();
         } // main
         public static void runTests() {
             System.out.println("-----------------------------------------------------------------------------------------------------------");
@@ -507,7 +507,7 @@ public class BSTTester {
             BST list = new BST();
             Scanner input = new Scanner(System.in);
             ArrayList<Integer> nums = new ArrayList<Integer>();
-            System.out.println("Only enter nonnegative integers");
+            System.out.println("Only enter non-negative integers");
             System.out.println("List the amount of numbers you're entering: ");
             int max = input.nextInt();
             for (int i = 0; i < max; i++) {
