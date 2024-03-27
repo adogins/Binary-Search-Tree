@@ -9,6 +9,7 @@ Alexis Dogins
 
 ## Group Memebers if any
 - I chose to work alone on this project.
+
 ## Other Notes
 - I made a few private methods to make make it easier to identify the nodes. Such methods include a search method.
 - For preorder, postorder, and inorder, I used recursion in private methods and called those recursive methods in the respective public methods. 
