@@ -5,7 +5,7 @@ Alexis Dogins
 - Please compile BST.java before compliing BSTTester.java as BSTTester.java is dependent on BST.java.
 - Also feel free to run these files in the terminal. I personally used Visual Studio Code which I find to work well too. 
 - Feel free to enter numbers with the general test or modify any of the other tests I made. Or use a different tester that I didn't make. 
-- If you use the general test know that if you enter a number to delete that's not in the tree then the entire test will stop and print the number is not found. If you run the regular tests I made then you'll see where it says the element is not found and moved on in with the rest of the code. 
+- If you use the general test know that if you enter a number to delete that's not in the tree then the entire test will stop and print the element is not found. If you run the regular tests I made then you'll see where it says the element is not found and moved on in with the rest of the code. 
 
 ## Group Memebers if any
 - I chose to work alone on this project.
